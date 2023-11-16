@@ -1,0 +1,6 @@
+streamlit_option_menu
+streamlit
+pandas
+joblib
+matplotlib.pyplot
+shap
