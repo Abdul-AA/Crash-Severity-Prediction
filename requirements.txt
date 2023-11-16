@@ -1,6 +1,6 @@
 streamlit_option_menu
 streamlit
-xgboost==2.0.2
+xgboost==2.0.1
 pandas
 joblib
 matplotlib
