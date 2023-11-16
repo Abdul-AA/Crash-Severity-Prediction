@@ -3,8 +3,7 @@ import pandas as pd
 import joblib
 import shap
 import matplotlib.pyplot as plt
-import xgboost
-from xgboost import XGBClassifier
+
 
 # Load the model
 model = joblib.load('xgb_model_final.pkl')
