@@ -92,7 +92,7 @@ def main():
             
             # Display SHAP summary and waterfall plots
             st.subheader("SHAP Summary Explanation")
-            st.write("This plot shows the impact of each feature on the model's output for each prediction.")
+            st.write("This plot shows the impact of each feature on the model's output for the prediction.")
             shap_summary_plot(model, input_df)
 
             st.subheader("SHAP Waterfall Explanation for the Prediction")
