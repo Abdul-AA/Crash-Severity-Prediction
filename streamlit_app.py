@@ -48,6 +48,8 @@ def main():
 
     with st.form("prediction_form"):
         st.subheader("Check the Following Boxes for YES, Skip for NO:")
+        if st.checkbox("Show vehicle clock point reference"):
+            st.image('clock_point.png', caption='Vehicle Clock Point Reference')
         # Your input fields
         inputs = {
             
