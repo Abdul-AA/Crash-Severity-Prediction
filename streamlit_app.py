@@ -6,7 +6,7 @@ import matplotlib.pyplot as plt
 
 
 # Load the model
-model = joblib.load('xgb_model_final.pkl')
+model = joblib.load('xgb_model_final2.pkl')
 
 def predict_injury_severity(input_data):
     probability = model.predict_proba(input_data)[:, 1]
