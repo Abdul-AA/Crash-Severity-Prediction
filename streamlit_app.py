@@ -99,10 +99,7 @@ def main():
             st.write("This plot shows how each feature contributes to the individual prediction, moving from the base value to the final output.")
             shap_waterfall_plot(model, input_df)
 
-            with st.sidebar:
-                st.subheader("Vehicle Clock Point Reference")
-                if st.checkbox("Show image"):
-                    st.image('clock_point.png', caption='Vehicle Clock Point Reference', use_column_width=True)
+            
         
 if __name__ == '__main__':
     main()
