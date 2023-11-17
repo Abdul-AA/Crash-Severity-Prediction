@@ -29,7 +29,3 @@ st.plotly_chart(map_fig)
 
 
 
-# Additional Insights (Optional)
-# ...
-
-# Ensure to replace '/path/to/your/data.csv' with the actual path to your dataset.
