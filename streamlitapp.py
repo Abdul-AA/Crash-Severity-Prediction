@@ -31,6 +31,6 @@ color_scale = {
 
 map_fig = px.scatter_mapbox(df, lat="Latitude", lon="Longitude", color="Injury Severity",
                             hover_data=['Route Type', 'Weather', 'Light'],
-                            zoom=10, height=700, mapbox_style="open-street-map",
+                            zoom=10, height=500, mapbox_style="open-street-map",
                             color_discrete_map=color_scale)
 st.plotly_chart(map_fig)
