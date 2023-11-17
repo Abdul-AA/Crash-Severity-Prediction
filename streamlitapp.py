@@ -22,7 +22,7 @@ if severity_filter != 'All':
 
 # Map Visualization
 st.header("Accident Locations on Map")
-plt.figure(figsize=(20,15))
+plt.figure(figsize=(40,15))
 map_fig = px.scatter_mapbox(df, lat="Latitude", lon="Longitude", color="Injury Severity",
                             hover_data=['Route Type', 'Weather', 'Light'],
                             zoom=10, height=500, mapbox_style="open-street-map")
