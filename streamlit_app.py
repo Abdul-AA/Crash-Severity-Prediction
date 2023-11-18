@@ -64,7 +64,7 @@ def main():
                     'Collision Type_SAME DIRECTION SIDESWIPE': st.checkbox('Was the collision a same direction sideswipe?'),
                     'Vehicle Body Type_MOTORCYCLE': st.checkbox('Is it a motorcycle?'),
                     'Vehicle Movement_BACKING': st.checkbox('Was the vehicle backing?'),
-                    'Collision Type_SAME DIR REAR END': st.checkbox('Was the collision a same direction rear end?')
+                    'Collision Type_SAME DIR REAR END': st.checkbox('Was the collision a same direction rear end?'),
                     'Collision Type_HEAD ON': st.checkbox('Was the collision head on?'),
                     'Vehicle Movement_MOVING CONSTANT SPEED': st.checkbox('Was the vehicle moving at a constant speed?')}
             with col2:
