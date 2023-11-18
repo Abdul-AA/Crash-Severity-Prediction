@@ -83,6 +83,8 @@ def main():
                 if submit_button:
                     input_df = pd.DataFrame([inputs])
                     st.session_state['input_df'] = input_df
+                    prediction = predict_injury_severity(input_df)
+
         
         # Use HTML with inline CSS for color styling
                 if prediction == 1:
