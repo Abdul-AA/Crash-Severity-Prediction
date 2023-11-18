@@ -37,6 +37,9 @@ def shap_waterfall_plot(model, input_data):
         st.error("SHAP waterfall plot is only available for individual predictions.")
 
 def main():
+    if 'input_df' not in st.session_state:
+        st.session_state['input_df'] = pd.DataFrame()
+
     tab1,tab2,tab3=st.tabs(['Make a Prediction','See SHAP Summary Plot','See Waterfall Plot'])
     with tab1:
     
@@ -77,8 +80,9 @@ def main():
     
             if submit_button:
                 inputs = {**inputs1, **inputs2}  # Combine inputs from both columns
-                input_df = pd.DataFrame([inputs])
-                prediction = predict_injury_severity(input_df)
+                if submit_button:
+                    input_df = pd.DataFrame([inputs])
+                    st.session_state['input_df'] = input_df
         
         # Use HTML with inline CSS for color styling
                 if prediction == 1:
@@ -88,15 +92,19 @@ def main():
     
                 st.markdown(f'<p class="big-font">Emergency Level: <b>{severity}</b></p>', unsafe_allow_html=True)
     with tab2:   
-            # Display SHAP summary and waterfall plots
-            st.subheader("SHAP Summary Explanation")
-            st.write("This plot shows the impact of each feature on the model's output for the prediction.")
-            shap_summary_plot(model, input_df)
+            if st.session_state['input_df'].empty:
+                st.write("Please make a prediction first.")
+            else:
+                st.subheader("SHAP Summary Explanation")
+                shap_summary_plot(model, st.session_state['input_df'])
+
     with tab3:
 
-            st.subheader("SHAP Waterfall Explanation for the Prediction")
-            st.write("This plot shows how each feature contributes to the individual prediction, moving from the base value to the final output.")
-            shap_waterfall_plot(model, input_df)
+            if st.session_state['input_df'].empty:
+                st.write("Please make a prediction first.")
+            else:
+                st.subheader("SHAP Waterfall Explanation for the Prediction")
+                shap_waterfall_plot(model, st.session_state['input_df'])
 
 
 
