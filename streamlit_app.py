@@ -109,7 +109,7 @@ if __name__ == '__main__':
     main()
 
 
-@st.cache
+@st.cache_data
 def convert_df_to_csv(df):
     return df.to_csv().encode('utf-8')
 
