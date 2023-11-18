@@ -109,13 +109,3 @@ if __name__ == '__main__':
     main()
 
 
-@st.cache_data
-def convert_df_to_csv(df):
-    return df.to_csv().encode('utf-8')
-
-csv = convert_df_to_csv(filtered_df)  # Assuming 'filtered_df' is your DataFrame
-st.download_button(
-    label="Download data as CSV",
-    data=csv,
-    file_name='dashboard_data.csv',
-    mime='text/csv',)
