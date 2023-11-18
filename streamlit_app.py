@@ -99,6 +99,19 @@ def main():
             st.write("This plot shows how each feature contributes to the individual prediction, moving from the base value to the final output.")
             shap_waterfall_plot(model, input_df)
 
+@st.cache
+def convert_df_to_csv(df):
+    return df.to_csv().encode('utf-8')
+
+csv = convert_df_to_csv(filtered_df)  # Assuming 'filtered_df' is your DataFrame
+st.download_button(
+    label="Download data as CSV",
+    data=csv,
+    file_name='dashboard_data.csv',
+    mime='text/csv',
+)
+
+
             
         
 if __name__ == '__main__':
