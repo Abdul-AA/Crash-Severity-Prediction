@@ -39,14 +39,6 @@ def shap_waterfall_plot(model, input_data):
 def main():
     tab1,tab2,tab3=st.tabs(['Make a Prediction','See SHAP Summary Plot','See Waterfall Plot'])
     with tab1:
-        st.title('Vehicle Accident Injury Severity Prediction: High Emergency or Low Emergency?')
-        st.markdown("""
-            <style>
-            .big-font {
-                font-size:20px !important;
-            }
-            </style>
-            """, unsafe_allow_html=True)
     
         with st.form("prediction_form"):
             st.subheader("Check the Following Boxes for YES, Skip for NO:")
@@ -78,7 +70,6 @@ def main():
                     'Collision Type_STRAIGHT MOVEMENT ANGLE': st.checkbox('Was the collision a straight movement angle?'),
                     'Vehicle First Impact Location_TWELVE OCLOCK': st.checkbox('Did the vehicle first impact location occur at twelve o\'clock of the Vehicle?'),
                     'Vehicle Second Impact Location_TWELVE OCLOCK': st.checkbox('Did the vehicle second impact location occur at twelve o\'clock of the Vehicle?')
-                
          
                 }
     
