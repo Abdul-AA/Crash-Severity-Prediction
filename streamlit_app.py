@@ -37,8 +37,7 @@ def shap_waterfall_plot(model, input_data):
         st.error("SHAP waterfall plot is only available for individual predictions.")
 
 def main():
-    tab1,tab2,tab3=st.tabs(['Make a Prediction','See SHAP Summary Plot','See Waterfall Plot'])
-    with tab1:
+    
         st.title('Vehicle Accident Injury Severity Prediction: High Emergency or Low Emergency?')
         st.markdown("""
             <style>
@@ -91,12 +90,12 @@ def main():
                     severity = '<span style="color: green;">Low</span>'
     
                 st.markdown(f'<p class="big-font">Emergency Level: <b>{severity}</b></p>', unsafe_allow_html=True)
-    with tab2:   
+     
             # Display SHAP summary and waterfall plots
             st.subheader("SHAP Summary Explanation")
             st.write("This plot shows the impact of each feature on the model's output for the prediction.")
             shap_summary_plot(model, input_df)
-    with tab3:
+  
 
             st.subheader("SHAP Waterfall Explanation for the Prediction")
             st.write("This plot shows how each feature contributes to the individual prediction, moving from the base value to the final output.")
