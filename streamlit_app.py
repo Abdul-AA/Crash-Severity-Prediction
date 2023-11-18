@@ -99,6 +99,16 @@ def main():
             st.write("This plot shows how each feature contributes to the individual prediction, moving from the base value to the final output.")
             shap_waterfall_plot(model, input_df)
 
+
+
+
+
+            
+        
+if __name__ == '__main__':
+    main()
+
+
 @st.cache
 def convert_df_to_csv(df):
     return df.to_csv().encode('utf-8')
@@ -109,10 +119,3 @@ st.download_button(
     data=csv,
     file_name='dashboard_data.csv',
     mime='text/csv',
-)
-
-
-            
-        
-if __name__ == '__main__':
-    main()
