@@ -84,10 +84,10 @@ def main():
             submit_button = st.form_submit_button("See Level of Emergency")
     
             if submit_button:
-            inputs = {**inputs_col1, **inputs_col2}  # Combine inputs from both columns
-            input_df = pd.DataFrame([inputs])
-            prediction = predict_injury_severity(input_df)
-    
+                inputs = {**inputs_col1, **inputs_col2}  # Combine inputs from both columns
+                input_df = pd.DataFrame([inputs])
+                prediction = predict_injury_severity(input_df)
+        
         # Use HTML with inline CSS for color styling
                 if prediction == 1:
                     severity = '<span style="color: red;">High</span>'
