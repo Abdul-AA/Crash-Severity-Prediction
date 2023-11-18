@@ -45,7 +45,7 @@ def main():
     
         with st.form("prediction_form"):
             st.subheader("Check the Following Boxes for YES, Skip for NO:")
-            col1,col2,col3=st.columns(3)
+            col1,col2=st.columns(2)
             with col1:
             # Your input fields
                 inputs1 = {
@@ -57,8 +57,11 @@ def main():
                     'Vehicle Second Impact Location_SIX OCLOCK': st.checkbox('Did the vehicle second impact location occur at six o\'clock of the Vehicle?'),
                     'Vehicle Damage Extent_DISABLING': st.checkbox('Was the vehicle damage disabling?'),
                     'Collision Type_SAME DIRECTION SIDESWIPE': st.checkbox('Was the collision a same direction sideswipe?'),
-                    'Vehicle Body Type_MOTORCYCLE': st.checkbox('Is it a motorcycle?')
-                    }
+                    'Vehicle Body Type_MOTORCYCLE': st.checkbox('Is it a motorcycle?'),
+                    'Vehicle Movement_BACKING': st.checkbox('Was the vehicle backing?'),
+                    'Collision Type_SAME DIR REAR END': st.checkbox('Was the collision a same direction rear end?'),
+                    'Collision Type_HEAD ON': st.checkbox('Was the collision head on?'),
+                    'Vehicle Movement_MOVING CONSTANT SPEED': st.checkbox('Was the vehicle moving at a constant speed?')}
             with col2:
                 inputs2={
                     
@@ -66,13 +69,7 @@ def main():
                     'Vehicle Second Impact Location_FOUR OCLOCK': st.checkbox('Did the vehicle second impact location occur at four o\'clock of the Vehicle?'),
                     'Vehicle Body Type_PASSENGER CAR': st.checkbox('Is it a passenger car?'),
                     'Vehicle Second Impact Location_NINE OCLOCK': st.checkbox('Did the vehicle second impact location occur at nine o\'clock of the Vehicle?'),
-                    'Collision Type_OTHER': st.checkbox('Check if the collision type was not one of the following: Same Direction Rear End, Same Direction Sideswipe, Head On, Angle, Opposite Direction Sideswipe, Opposite Direction Rear End, Same Movement Angle, Straight Movement Angle')
-                }
-            with col3:
-                inputs3={'Vehicle Movement_BACKING': st.checkbox('Was the vehicle backing?'),
-                    'Collision Type_SAME DIR REAR END': st.checkbox('Was the collision a same direction rear end?'),
-                    'Collision Type_HEAD ON': st.checkbox('Was the collision head on?'),
-                    'Vehicle Movement_MOVING CONSTANT SPEED': st.checkbox('Was the vehicle moving at a constant speed?'),
+                    'Collision Type_OTHER': st.checkbox('Check if the collision type was not one of the following: Same Direction Rear End, Same Direction Sideswipe, Head On, Angle, Opposite Direction Sideswipe, Opposite Direction Rear End, Same Movement Angle, Straight Movement Angle'),
                     'Collision Type_STRAIGHT MOVEMENT ANGLE': st.checkbox('Was the collision a straight movement angle?'),
                     'Vehicle First Impact Location_TWELVE OCLOCK': st.checkbox('Did the vehicle first impact location occur at twelve o\'clock of the Vehicle?'),
                     'Vehicle Second Impact Location_TWELVE OCLOCK': st.checkbox('Did the vehicle second impact location occur at twelve o\'clock of the Vehicle?')
@@ -82,7 +79,7 @@ def main():
             submit_button = st.form_submit_button("See Level of Emergency")
     
             if submit_button:
-                inputs = {**inputs1, **inputs2,**inputs3}  # Combine inputs from both columns
+                inputs = {**inputs1, **inputs2}  # Combine inputs from both columns
                 if submit_button:
                     input_df = pd.DataFrame([inputs])
                     st.session_state['input_df'] = input_df
