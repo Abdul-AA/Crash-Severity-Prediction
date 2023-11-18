@@ -64,11 +64,12 @@ def main():
                     'Collision Type_SAME DIRECTION SIDESWIPE': st.checkbox('Was the collision a same direction sideswipe?'),
                     'Vehicle Body Type_MOTORCYCLE': st.checkbox('Is it a motorcycle?'),
                     'Vehicle Movement_BACKING': st.checkbox('Was the vehicle backing?'),
-                    'Collision Type_SAME DIR REAR END': st.checkbox('Was the collision a same direction rear end?')}
+                    'Collision Type_SAME DIR REAR END': st.checkbox('Was the collision a same direction rear end?')
+                    'Collision Type_HEAD ON': st.checkbox('Was the collision head on?'),
+                    'Vehicle Movement_MOVING CONSTANT SPEED': st.checkbox('Was the vehicle moving at a constant speed?')}
             with col2:
                 inputs2={
-                    'Collision Type_HEAD ON': st.checkbox('Was the collision head on?'),
-                    'Vehicle Movement_MOVING CONSTANT SPEED': st.checkbox('Was the vehicle moving at a constant speed?'),
+                    
                     'Vehicle Body Type_SCHOOL BUS': st.checkbox('Is it a school bus?'),
                     'Vehicle Second Impact Location_FOUR OCLOCK': st.checkbox('Did the vehicle second impact location occur at four o\'clock of the Vehicle?'),
                     'Vehicle Body Type_PASSENGER CAR': st.checkbox('Is it a passenger car?'),
@@ -84,7 +85,7 @@ def main():
             submit_button = st.form_submit_button("See Level of Emergency")
     
             if submit_button:
-                inputs = {**inputs_col1, **inputs_col2}  # Combine inputs from both columns
+                inputs = {**inputs1, **inputs2}  # Combine inputs from both columns
                 input_df = pd.DataFrame([inputs])
                 prediction = predict_injury_severity(input_df)
         
