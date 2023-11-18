@@ -14,7 +14,7 @@ def predict_injury_severity(input_data):
 def shap_summary_plot(model, input_data):
     explainer = shap.Explainer(model)
     shap_values = explainer.shap_values(input_data)
-    plt.figure(figsize=(20, 15))
+    plt.figure(figsize=(10, 7))
     shap.summary_plot(shap_values, input_data, show=False)
     plt.tight_layout()
     st.pyplot(plt)
