@@ -82,7 +82,7 @@ def main():
             submit_button = st.form_submit_button("See Level of Emergency")
     
             if submit_button:
-                inputs = {**inputs1, **inputs2}  # Combine inputs from both columns
+                inputs = {**inputs1, **inputs2,**inputs3}  # Combine inputs from both columns
                 if submit_button:
                     input_df = pd.DataFrame([inputs])
                     st.session_state['input_df'] = input_df
